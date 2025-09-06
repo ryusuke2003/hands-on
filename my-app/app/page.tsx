@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function Home() {
   const router = useRouter();
@@ -31,7 +32,7 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-screen items-center justify-center p-4">
+    <main className="flex min-h-screen flex-col items-center justify-center p-4">
       <form
         onSubmit={handleSubmit}
         className="flex w-full max-w-md flex-col gap-2 rounded-lg bg-white p-6 shadow"
@@ -65,6 +66,9 @@ export default function Home() {
           Send
         </button>
       </form>
+      <Link href="/entries" className="mt-4 text-blue-600 hover:underline">
+        View entries
+      </Link>
     </main>
   );
 }
