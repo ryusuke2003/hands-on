@@ -52,3 +52,7 @@ npx prisma migrate dev --name init
 npx prisma generate
 npx prisma migrate deploy
 ```
+
+## Environment variables
+
+This project reads `DB_PROVIDER` and `DATABASE_URL` from the environment at runtime. They are accessed on the server via `src/lib/config.ts` and are not exposed to client-side code.
