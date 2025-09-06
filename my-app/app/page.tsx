@@ -66,9 +66,14 @@ export default function Home() {
           Send
         </button>
       </form>
-      <Link href="/entries" className="mt-4 text-blue-600 hover:underline">
-        View entries
-      </Link>
+      <div className="mt-4 flex gap-4">
+        <Link href="/entries" className="text-blue-600 hover:underline">
+          View entries
+        </Link>
+        <Link href="/todo" className="text-blue-600 hover:underline">
+          Todo list
+        </Link>
+      </div>
     </main>
   );
 }
