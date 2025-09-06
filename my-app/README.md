@@ -46,9 +46,10 @@ npm run format
 ```
 
 ## Prisma コマンド
+以下の npm スクリプトで Prisma 関連の操作を行えます。
 
-```bash
-npx prisma migrate dev --name init
-npx prisma generate
-npx prisma migrate deploy
-```
+- `npm run prisma:generate`: Prisma Client を生成します。
+- `npm run prisma:validate`: Prisma スキーマを検証します。
+- `npm run prisma:migrate`: 開発用のマイグレーションを作成して適用します。
+
+依存関係のインストール時（例: `npm ci`）には `postinstall` により Prisma Client が自動生成されます。
