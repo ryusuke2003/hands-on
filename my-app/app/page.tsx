@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
   const router = useRouter();
-  const [form, setForm] = useState({ name: '', email: '', message: '' });
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -16,39 +16,32 @@ export default function Home() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const res = await fetch('/api/entries', {
-        method: 'POST',
+      const res = await fetch("/api/entries", {
+        method: "POST",
         body: JSON.stringify(form),
       });
       if (res.ok) {
-        router.push('/thanks');
+        router.push("/thanks");
       } else {
-        alert('Submission failed');
+        alert("Submission failed");
       }
     } catch (err) {
-      alert('Submission failed');
+      alert("Submission failed");
     }
   };
 
   return (
-    <main>
+    <main className="flex min-h-screen items-center justify-center p-4">
       <form
         onSubmit={handleSubmit}
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '8px',
-          maxWidth: '400px',
-          margin: '0 auto',
-          padding: '16px',
-        }}
+        className="flex w-full max-w-md flex-col gap-2 rounded-lg bg-white p-6 shadow"
       >
         <input
           name="name"
           value={form.name}
           onChange={handleChange}
           placeholder="Name"
-          style={{ padding: '8px', border: '1px solid #ccc' }}
+          className="rounded border border-gray-300 p-2"
         />
         <input
           type="email"
@@ -56,23 +49,18 @@ export default function Home() {
           value={form.email}
           onChange={handleChange}
           placeholder="Email"
-          style={{ padding: '8px', border: '1px solid #ccc' }}
+          className="rounded border border-gray-300 p-2"
         />
         <textarea
           name="message"
           value={form.message}
           onChange={handleChange}
           placeholder="Message"
-          style={{ padding: '8px', border: '1px solid #ccc' }}
+          className="rounded border border-gray-300 p-2"
         />
         <button
           type="submit"
-          style={{
-            padding: '8px',
-            border: '1px solid #ccc',
-            background: '#f0f0f0',
-            cursor: 'pointer',
-          }}
+          className="rounded border border-gray-300 bg-gray-100 p-2 hover:bg-gray-200"
         >
           Send
         </button>
