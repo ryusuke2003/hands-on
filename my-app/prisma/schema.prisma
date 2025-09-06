@@ -6,3 +6,11 @@ datasource db {
 generator client {
   provider = "prisma-client-js"
 }
+
+model Entry {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @db.VarChar(255)
+  message   String
+  createdAt DateTime @default(now())
+}

@@ -44,3 +44,11 @@ npm run dev
 ```bash
 npm run format
 ```
+
+## Prisma コマンド
+
+```bash
+npx prisma migrate dev --name init
+npx prisma generate
+npx prisma migrate deploy
+```
