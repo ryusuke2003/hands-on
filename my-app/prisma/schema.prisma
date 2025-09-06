@@ -1,5 +1,6 @@
 datasource db {
-  provider = env("DB_PROVIDER")
+  // Use a fixed provider. In dev we use SQLite.
+  provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 
@@ -10,7 +11,7 @@ generator client {
 model Entry {
   id        String   @id @default(cuid())
   name      String
-  email     String   @db.VarChar(255)
+  email     String
   message   String
   createdAt DateTime @default(now())
 }
