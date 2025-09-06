@@ -73,6 +73,9 @@ export default function Home() {
         <Link href="/todo" className="text-blue-600 hover:underline">
           Todo list
         </Link>
+        <Link href="/calculator" className="text-blue-600 hover:underline">
+          Calculator
+        </Link>
       </div>
     </main>
   );
